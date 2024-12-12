@@ -2,3 +2,4 @@
 .env
 backend/__pycache__
 backend/routes/__pycache__/
+backend/database/__pycache__/
