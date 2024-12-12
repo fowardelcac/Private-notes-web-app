@@ -1,0 +1,37 @@
+#Title {
+    text-align: center;
+}
+
+#Formulary {
+    border-radius: 25px;
+    border: 2px solid;
+    margin: 0 auto;
+    text-align: center;
+    width: 300px;
+    padding: 50px;
+    background-color: #E3F2FD;
+    border: black linen;
+}
+
+#Submit {
+    margin-top: 10px;
+    background-color: cornflowerblue;
+    border-radius: 8px;
+    width: 200px;
+    height: 40px;
+    align-items: center;
+}
+
+#Submit:hover {
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+input {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}

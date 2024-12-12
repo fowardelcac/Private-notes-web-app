@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/static/styles/new_notes.css">
+        <title>Create notes</title>
+    </head>
+    <body>
+        <h1 id="Title">Create new notes</h1>
+        <form action="/user/home/content/new" method="post">
+            <input  type="text" name="title" placeholder="Enter note's title"
+                required>
+            <input id="area" type="text" name="content" placeholder="Write your thoughts"
+                required>
+            <input id="buton" type="submit" value="Submit">
+        </form>
+
+    </body>
+</html>

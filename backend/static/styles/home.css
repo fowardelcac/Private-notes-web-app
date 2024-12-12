@@ -1,0 +1,26 @@
+#Title{
+    text-align: center;
+}
+
+table, td, th {
+    border: 1px solid;
+}
+
+.header {
+    background-color: cornflowerblue;
+
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+}
+
+#new {
+    border-radius: 25px;
+    border: 2px solid;
+    text-align: center;
+    background-color: #E3F2FD;
+    border: black linen;
+    margin-left: 35em;
+}
