@@ -1,0 +1,37 @@
+#Title{
+    text-align: center;
+}
+
+table, td, th {
+    border: 1px solid;
+}
+
+.header {
+    background-color: cornflowerblue;
+
+}
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+}
+.button-container {
+    display: flex;
+    justify-content: space-between; /* Espacia elementos entre los extremos */
+    align-items: center; /* Alinea verticalmente */
+    margin: 20px auto; /* Centra el contenedor */
+    width: 80%; /* Ajusta el ancho del contenedor */
+}
+
+#new, #logout {
+    border-radius: 25px;
+    border: 2px solid black; /* Consistencia de bordes */
+    text-align: center;
+    background-color: #E3F2FD;
+    width: 150px;
+    height: 30px;
+}
+
+#logout {
+    margin-right: 0; 
+}

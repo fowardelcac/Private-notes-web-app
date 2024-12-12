@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link rel="stylesheet" href="/static/styles/home.css">
+    <head> 
+        <link rel="stylesheet" href="/static/templates/styles/home.css">
         <title>Home Page</title>
     </head>
     <body>
         <h1 id="Title">Private notes</h1>
-        <a href="/user/home/content/new">
-            <input id="new" type="button" value="Create">
-        </a>
-
+        <div class="button-container">
+            <a href="/user/home/content/new">
+                <input id="new" type="button" value="Create">
+            </a>
+        
+            <form action="/user/home/logout" method="post">
+                <input id="logout" type="submit" value="Logout">
+            </form> 
+        </div>
+        
         <table>
             <tr class="header">
                     <th>Index</th>
