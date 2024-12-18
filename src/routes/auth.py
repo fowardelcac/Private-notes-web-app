@@ -2,10 +2,9 @@ from fastapi import APIRouter, HTTPException, status, Depends, Request, Cookie
 from fastapi.responses import HTMLResponse, RedirectResponse
 from fastapi.security import OAuth2PasswordRequestForm
 from typing import Annotated
-
-from database.models import UserDb
-from database.database import UserSQL, SESSIONDEP
-from utilities import TEMPLATES, PWD, JWTUtility
+from src.db import UserDb
+from src.db.database import UserSQL, SESSIONDEP
+from src.utils.security import TEMPLATES, PWD, JWTUtility
 
 
 router_auth = APIRouter(tags=["Auth"])

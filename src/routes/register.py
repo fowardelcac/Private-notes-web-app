@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, status, Request, Depends
 from fastapi.responses import RedirectResponse, HTMLResponse
-from database.database import SESSIONDEP, UserSQL, UserDb
-from utilities import PWD, TEMPLATES, JWTUtility
+from src.db.database import SESSIONDEP, UserSQL
+from src.utils.security import PWD, TEMPLATES, JWTUtility
 from typing import Annotated
 from fastapi.security import OAuth2PasswordRequestForm
 
@@ -29,16 +29,16 @@ async def register_acces(
     session: SESSIONDEP,
 ) -> RedirectResponse:
     """
-    Handles user registration by validating input, creating a new user in the database, 
+    Handles user registration by validating input, creating a new user in the database,
     and setting an access token cookie for the user.
 
     Args:
-        form_data (Annotated[OAuth2PasswordRequestForm, Depends()]): The form data containing the user's 
+        form_data (Annotated[OAuth2PasswordRequestForm, Depends()]): The form data containing the user's
                                                                      username and password.
         session (SESSIONDEP): The database session dependency for interacting with the user database.
 
     Returns:
-        RedirectResponse: Redirects the user to the home page after successful registration, 
+        RedirectResponse: Redirects the user to the home page after successful registration,
                           setting an access token in the response cookie.
 
     Raises:

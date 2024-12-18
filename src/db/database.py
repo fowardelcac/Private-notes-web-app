@@ -1,8 +1,8 @@
 from sqlmodel import SQLModel, create_engine, Session, select
-from .models import UserDb, DataDb
+from .models import DataDb, UserDb
 from typing import Annotated
 from fastapi import Depends
-from utilities import FernetUtility
+from src.utils.security import FernetUtility
 
 # Database Engine Configuration
 ENGINE = create_engine(

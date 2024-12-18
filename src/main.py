@@ -1,15 +1,16 @@
+from src.routes import auth, new_content, page, register
+
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse, RedirectResponse
-from routes.router_auth import router_auth
-from routes.router_register import router_register
-from routes.router_page import router_home
-from database.database import create_db_and_tables
+from src.db.database import create_db_and_tables
 from fastapi.staticfiles import StaticFiles
 
+
 app = FastAPI()
-app.include_router(router_auth)
-app.include_router(router_register)
-app.include_router(router_home)
+app.include_router(auth.router_auth)
+app.include_router(register.router_register)
+app.include_router(page.router_home)
+app.include_router(new_content.router_new_content)
 
 """
 Mounts the "/static" route to serve static files from the specified directory.
@@ -17,7 +18,7 @@ Mounts the "/static" route to serve static files from the specified directory.
 - The directory "backend/static" contains static resources (e.g., CSS, JS, images).
 - The name "static" is used to reference this route in the app.
 """
-app.mount("/static", StaticFiles(directory="backend/static"), name="static")
+app.mount("/static", StaticFiles(directory="src/static"), name="static")
 
 
 @app.on_event("startup")

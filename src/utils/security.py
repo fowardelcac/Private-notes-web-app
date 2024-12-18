@@ -3,22 +3,11 @@ import jwt
 from cryptography.fernet import Fernet
 from fastapi.templating import Jinja2Templates
 from fastapi import HTTPException, status
-
-from pydantic import Field
-from pydantic_settings import BaseSettings
 from dotenv import load_dotenv
+from src.settings import Settings
 
 load_dotenv()
-TEMPLATES = Jinja2Templates(directory="backend/static/templates")
-
-
-class Settings(BaseSettings):
-    SECRET_KEY: str = Field(..., env="SECRET_KEY")  # Obligatoria
-    ALGORITHM: str = Field(default="HS256")  # Default HS256
-    SECRET_FERNET: str = Field(..., env="SECRET_FERNET")
-
-    class Config:
-        env_file = ".env"
+TEMPLATES = Jinja2Templates(directory="src/static/templates")
 
 
 settings = Settings()
@@ -64,6 +53,7 @@ class PWD:
     @staticmethod
     def verify_hash(password: str, hashed_password: str) -> bool:
         return PWD.PWD_CONTEXT.verify(password, hashed_password)
+
     @staticmethod
     def hash(secret: str) -> str:
         return PWD.PWD_CONTEXT.hash(secret)
