@@ -3,10 +3,8 @@ import jwt
 from cryptography.fernet import Fernet
 from fastapi.templating import Jinja2Templates
 from fastapi import HTTPException, status
-from dotenv import load_dotenv
 from src.settings import Settings
 
-load_dotenv()
 TEMPLATES = Jinja2Templates(directory="src/static/templates")
 
 

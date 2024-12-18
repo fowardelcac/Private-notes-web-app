@@ -15,7 +15,7 @@ app.include_router(new_content.router_new_content)
 """
 Mounts the "/static" route to serve static files from the specified directory.
 
-- The directory "backend/static" contains static resources (e.g., CSS, JS, images).
+- The directory "src/static" contains static resources (CSS and HTML).
 - The name "static" is used to reference this route in the app.
 """
 app.mount("/static", StaticFiles(directory="src/static"), name="static")
