@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from typing import Annotated
 from src.db.models import UserDb
 from src.db.database import SESSIONDEP, DataSQL
-from src.utils.security import TEMPLATES
+from src.utils.utilities import TEMPLATES
 from .auth import verify_cookies
 
 
@@ -34,7 +34,7 @@ async def home(
 
 
 @router_home.get("/user/home/content/note/{note_id}", response_class=HTMLResponse)
-async def user_profile(
+async def user_note(
     request: Request,
     note_id: int,
     session: SESSIONDEP,

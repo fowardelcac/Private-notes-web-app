@@ -2,7 +2,7 @@ from sqlmodel import SQLModel, create_engine, Session, select
 from .models import DataDb, UserDb
 from typing import Annotated
 from fastapi import Depends
-from src.utils.security import FernetUtility
+from src.utils.utilities import FernetUtility
 
 # Database Engine Configuration
 ENGINE = create_engine(
@@ -142,21 +142,21 @@ class DataSQL:
 
     @staticmethod
     def add_data(
-        title: str, hashed_content: bytes, user_id: int, session: SESSIONDEP
+        title: str, encrypted_content: bytes, user_id: int, session: SESSIONDEP
     ) -> None:
         """
         Adds a new data entry for a specific user.
 
         Args:
             title (str): The title of the data entry.
-            hashed_content (bytes): The encrypted content to store in the data entry.
+            encrypted_content (bytes): The encrypted content to store in the data entry.
             user_id (int): The ID of the user who owns the data.
             session (SESSIONDEP): The database session to use for adding the new entry.
 
         Returns:
             None: This method doesn't return any value.
         """
-        new_content = DataDb(title=title, content=hashed_content, user_id=user_id)
+        new_content = DataDb(title=title, content=encrypted_content, user_id=user_id)
         session.add(new_content)
         session.commit()
         session.refresh(new_content)

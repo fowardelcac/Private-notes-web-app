@@ -3,7 +3,7 @@ from fastapi.responses import HTMLResponse, RedirectResponse
 from typing import Annotated
 from src.db.models import UserDb
 from src.db.database import SESSIONDEP, DataSQL, UserSQL
-from src.utils.security import TEMPLATES, FernetUtility
+from src.utils.utilities import TEMPLATES, FernetUtility
 from .auth import verify_cookies
  
 router_new_content = APIRouter(tags=["Content"])
@@ -48,11 +48,11 @@ async def create_content(
     Returns:
         RedirectResponse: Redirects the user to their homepage after content creation.
     """
-    hashed_content: bytes = FernetUtility.fernet_crypt(content)
+    encrypted_content: bytes = FernetUtility.fernet_crypt(content)
     user_data: UserDb = UserSQL.get_user(current_user.username, session)
     DataSQL.add_data(
         title=title,
-        hashed_content=hashed_content,
+        encrypted_content=encrypted_content,
         user_id=user_data.id,
         session=session,
     )

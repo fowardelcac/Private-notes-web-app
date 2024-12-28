@@ -6,7 +6,7 @@ load_dotenv()
 
 
 class Settings(BaseSettings):
-    SECRET_KEY: str = Field(..., env="SECRET_KEY")  # Obligatoria
+    SECRET_KEY: str = Field(..., env="SECRET_KEY")  # Required
     ALGORITHM: str = Field(default="HS256")  # Default HS256
     SECRET_FERNET: str = Field(..., env="SECRET_FERNET")
 

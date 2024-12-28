@@ -1,7 +1,7 @@
 from fastapi import APIRouter, HTTPException, status, Request, Depends
 from fastapi.responses import RedirectResponse, HTMLResponse
 from src.db.database import SESSIONDEP, UserSQL
-from src.utils.security import PWD, TEMPLATES, JWTUtility
+from src.utils.utilities import PWD, TEMPLATES, JWTUtility
 from typing import Annotated
 from fastapi.security import OAuth2PasswordRequestForm
 

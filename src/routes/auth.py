@@ -4,7 +4,7 @@ from fastapi.security import OAuth2PasswordRequestForm
 from typing import Annotated
 from src.db import UserDb
 from src.db.database import UserSQL, SESSIONDEP
-from src.utils.security import TEMPLATES, PWD, JWTUtility
+from src.utils.utilities import TEMPLATES, PWD, JWTUtility
 
 
 router_auth = APIRouter(tags=["Auth"])
@@ -117,7 +117,7 @@ async def login_for_access_token(
             url="/user/home",
             status_code=status.HTTP_302_FOUND,
         )
-        response.set_cookie(key="access_token", value=access_token)
+        response.set_cookie(key="access_token", value=access_token, httponly=True)
         return response
     except HTTPException as e:
         error_message = (
@@ -128,7 +128,6 @@ async def login_for_access_token(
             )
             else "invalid credentials"
         )
-        print(error_message)
         return RedirectResponse(
             url=f"/token?error={error_message}",
             status_code=status.HTTP_302_FOUND,

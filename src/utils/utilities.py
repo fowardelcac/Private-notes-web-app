@@ -7,7 +7,6 @@ from src.settings import Settings
 
 TEMPLATES = Jinja2Templates(directory="src/static/templates")
 
-
 settings = Settings()
 
 
@@ -46,7 +45,7 @@ class FernetUtility:
 
 
 class PWD:
-    PWD_CONTEXT = CryptContext(schemes=["bcrypt"], deprecated="auto")
+    PWD_CONTEXT: CryptContext = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
     @staticmethod
     def verify_hash(password: str, hashed_password: str) -> bool:
